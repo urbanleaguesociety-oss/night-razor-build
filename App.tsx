@@ -445,6 +445,7 @@ export const POSTIMAGE_PAGE_MAP: Record<string, string> = {
  * Resolves any Postimages URL (direct or page) to the direct raw image URL.
  */
 const EXACT_LOCAL_PATHS: Record<string, string> = {
+  // COVER ART, HUD PORTRAIT & OVERLAYS
   'Removing-text-and-logos-d8eb9d68.jpg': './assets/COVER ART/Removing_text_and_logos_d8eb9d68.jpg',
   'Removing-text-and-logos-7f7a402a.jpg': './assets/COVER ART/Removing_text_and_logos_7f7a402a.jpg',
   'Create-cartoon-hero-portrait-5e59aeb9.jpg': './assets/Overlays/Create_cartoon_hero_portrait_5e59aeb9.jpg',
@@ -452,6 +453,8 @@ const EXACT_LOCAL_PATHS: Record<string, string> = {
   'Edit-button-letters-and-backgrounds-7fb7a3ca.jpg': './assets/Breakables/Edit_button_letters_and_backgrounds_7fb7a3ca.jpg',
   'image0.jpg': './assets/Overlays/image0.jpeg',
   'image0-(1).jpg': './assets/Overlays/image0 (1).jpeg',
+
+  // CUTSCENES (Exact .JPG uppercase so Stage 2 -> Stage 3 never freezes)
   'Syndicate-takes-over-Pearl-City-2b59f0d7.jpg': './assets/cutscenes/Syndicate_takes_over_Pearl_City_2b59f0d7.jpg',
   'Add-story-text-to-box-ca1c0f5b.jpg': './assets/cutscenes/Add_story_text_to_box_ca1c0f5b.jpg',
   'Change-words-on-box-34545edb.jpg': './assets/cutscenes/Change_words_on_box_34545edb.jpg',
@@ -462,6 +465,8 @@ const EXACT_LOCAL_PATHS: Record<string, string> = {
   'IMG-7605.jpg': './assets/cutscenes/IMG_7605.JPG',
   'IMG-7606.jpg': './assets/cutscenes/IMG_7606.JPG',
   'IMG-7607.jpg': './assets/cutscenes/IMG_7607.JPG',
+
+  // STAGES & BREAKABLES ALIASES
   'sky.jpg': './assets/Stages/Isolate_distant_night_sky_skyscr…_63246386.jpg',
   'buildings.jpg': './assets/Stages/Adjust_building_designs_and_back…_486b9c99.jpg',
   'image0-(3).jpg': './assets/Stages/image0 (3).jpeg',
@@ -476,35 +481,38 @@ const EXACT_LOCAL_PATHS: Record<string, string> = {
   'IMG-7257.jpg': './assets/Breakables/IMG_7257.JPG',
   'IMG-7343.jpg': './assets/Breakables/IMG_7343.JPG',
   'IMG-7345.jpg': './assets/Breakables/IMG_7345.JPG',
-    // NIGHT RAZOR & ENEMY 1 EARLY SPRITES (Locked to exact Night Razor & Enemy 1 frames)
-  'hero-idle.jpg': './assets/SPRITES/IMG_7032.jpeg_cdbdfb0a.jpg',
-  'hero-idle2.jpg': './assets/SPRITES/IMG_7033.jpeg_19bf83cf.jpg',
-  'hero-walk1.jpg': './assets/SPRITES/IMG_7034.jpeg_adeee187.jpg',
-  'hero-walk3.jpg': './assets/SPRITES/IMG_7035.jpeg_dad94256.jpg',
-  'hero-walk4.jpg': './assets/SPRITES/IMG_7036.jpeg_2439db95.jpg',
-  'hero-punch1.jpg': './assets/SPRITES/IMG_7037.jpeg_d067130d.jpg',
-  'hero-punch2.jpg': './assets/SPRITES/IMG_7038.jpeg_66c7af57.jpg',
-  'hero-kick.jpg': './assets/SPRITES/hero_kick1.jpg',
-  'hero-kick2.jpg': './assets/SPRITES/hero_kick1.jpg',
-  'hero-damage.jpg': './assets/SPRITES/IMG_7039.jpeg_b750a4e6.jpg',
-  'hero-damage-midfall.jpg': './assets/SPRITES/IMG_7040.jpeg_4d3a7930.jpg',
-  'hero-lose.jpg': './assets/SPRITES/IMG_7041.jpeg_23c2cbac.jpg',
-  'hero-jump.jpg': './assets/SPRITES/IMG_7035.jpeg_dad94256.jpg',
-  'hero-jumppunch.jpg': './assets/SPRITES/IMG_7037.jpeg_d067130d.jpg',
-  'hero-jumpkick.jpg': './assets/SPRITES/hero_kick1.jpg',
-  'hero-grab.jpg': './assets/SPRITES/pull.jpg',
-  'hero-knee.jpg': './assets/SPRITES/hero_kick1.jpg',
-  'hero-throw.jpg': './assets/SPRITES/load.jpg',
-  'hero-pickup.jpg': './assets/SPRITES/hero_pickup.jpg',
-  'enemy-idle.jpg': './assets/SPRITES/IMG_7042.jpeg_4f173f25.jpg',
-  'enemy-walk1.jpg': './assets/SPRITES/IMG_7043.jpeg_d410474c.jpg',
-  'enemy-walk2.jpg': './assets/SPRITES/IMG_7042.jpeg_4f173f25.jpg',
-  'enemy-walk3.jpg': './assets/SPRITES/IMG_7043.jpeg_d410474c.jpg',
-  'enemy-walk4.jpg': './assets/SPRITES/IMG_7042.jpeg_4f173f25.jpg',
-  'enemy-punch.jpg': './assets/SPRITES/IMG_7044.jpeg_fc058555.jpg',
-  'enemy-damage.jpg': './assets/SPRITES/IMG_7044.jpeg_fc058555.jpg',
-  'enemy-lose.jpg': './assets/SPRITES/IMG_7044.jpeg_fc058555.jpg',
 
+  // NIGHT RAZOR (Locked strictly to ./assets/SPRITES/NightRazor/)
+  'hero-idle.jpg': './assets/SPRITES/NightRazor/Clean_sprite_on_green_background_ab36fcca.jpg',
+  'hero-idle2.jpg': './assets/SPRITES/NightRazor/Clean_sprite_on_green_background_8b04044f.jpg',
+  'hero-walk1.jpg': './assets/SPRITES/NightRazor/Sprite_isolated_on_green_background_3b107879.jpg',
+  'hero-walk3.jpg': './assets/SPRITES/NightRazor/Clean_sprite_on_green_background_e8a8ee17.jpg',
+  'hero-walk4.jpg': './assets/SPRITES/NightRazor/Clean_sprite_on_green_background_3b4b5ca9.jpg',
+  'hero-punch1.jpg': './assets/SPRITES/NightRazor/Pose_character_punching_db19dd64.jpg',
+  'hero-punch2.jpg': './assets/SPRITES/NightRazor/Pose_first_character_like_second_c4e7a6cb.jpg',
+  'hero-kick.jpg': './assets/SPRITES/NightRazor/hero_kick1.jpg',
+  'hero-kick2.jpg': './assets/SPRITES/NightRazor/Clean_sprite_on_green_background_c3c92536.jpg',
+  'hero-damage.jpg': './assets/SPRITES/NightRazor/Sprite_on_green_background_49cf5ab7.jpg',
+  'hero-damage-midfall.jpg': './assets/SPRITES/NightRazor/Sprite_on_green_background_769d3090.jpg',
+  'hero-lose.jpg': './assets/SPRITES/NightRazor/Sprite_on_green_background_355892eb.jpg',
+  'hero-jump.jpg': './assets/SPRITES/NightRazor/Pose_character_in_position_6ea45bea.jpg',
+  'hero-jumppunch.jpg': './assets/SPRITES/NightRazor/Pose_character_in_punch_position_9d8d7ac7.jpg',
+  'hero-jumpkick.jpg': './assets/SPRITES/NightRazor/Clean_sprite_on_green_background_9f859057.jpg',
+  'hero-grab.jpg': './assets/SPRITES/NightRazor/pull.jpg',
+  'hero-knee.jpg': './assets/SPRITES/NightRazor/Pose_first_character_kneeling_8fab3512.jpg',
+  'hero-throw.jpg': './assets/SPRITES/NightRazor/Posing_character_like_second_cha…_536fc7d5.jpg',
+  'hero-pickup.jpg': './assets/SPRITES/NightRazor/hero_pickup.jpg',
+  // ENEMY 1 (Locked strictly to ./assets/SPRITES/Enemy1/)
+  'enemy-idle.jpg': './assets/SPRITES/Enemy1/IMG_7691.JPG',
+  'enemy-walk1.jpg': './assets/SPRITES/Enemy1/IMG_7692.JPG',
+  'enemy-walk2.jpg': './assets/SPRITES/Enemy1/IMG_7693.JPG',
+  'enemy-walk3.jpg': './assets/SPRITES/Enemy1/IMG_7694.JPG',
+  'enemy-walk4.jpg': './assets/SPRITES/Enemy1/IMG_7692.JPG',
+  'enemy-punch.jpg': './assets/SPRITES/Enemy1/IMG_7695.JPG',
+  'enemy-damage.jpg': './assets/SPRITES/Enemy1/IMG_7696.JPG',
+  'enemy-lose.jpg': './assets/SPRITES/Enemy1/IMG_7697.JPG',
+
+  // TRUNCATED LONG FILENAMES (Exact subfolder + … matches)
   'Drawing-polished-brass-stanchion-2efbce41.jpg': './assets/Breakables/Drawing_polished_brass_stanchion…_2efbce41.jpg',
   'Galvanized-steel-trash-can-overf-856d183c.jpg': './assets/Breakables/Galvanized_steel_trash_can_overf…_856d183c.jpg',
   'Orange-construction-barrel-game-2ba1bb67.jpg': './assets/Breakables/Orange_construction_barrel_game_…_2ba1bb67.jpg',
@@ -539,22 +547,80 @@ const EXACT_LOCAL_PATHS: Record<string, string> = {
   'Dumpster-overflowing-with-trash-421d310b.jpg': './assets/Stages/Dumpster_overflowing_with_trash_…_421d310b.jpg',
   'Nightclub-video-game-background-c8c4a540.jpg': './assets/Stages/Nightclub_video_game_background_…_c8c4a540.jpg',
   'Isolate-interior-penthouse-room-e1965f94.jpg': './assets/Stages/Isolate_interior_penthouse_room_…_e1965f94.jpg',
-  'Character-isolated-on-green-back-d0703e23.jpg': './assets/SPRITES/Character_isolated_on_green_back…_d0703e23.jpg',
-  'Character-isolated-on-green-back-cd98e2bf.jpg': './assets/SPRITES/Character_isolated_on_green_back…_cd98e2bf.jpg',
-  'Posing-character-like-second-cha-536fc7d5.jpg': './assets/SPRITES/Posing_character_like_second_cha…_536fc7d5.jpg',
-  'Character-sprite-on-green-backgr-c58ba2d1.jpg': './assets/SPRITES/Character_sprite_on_green_backgr…_c58ba2d1.jpg',
-  'Clean-sprite-sheet-character-iso-51da999a.jpg': './assets/SPRITES/Clean_sprite_sheet_character_iso…_51da999a.jpg',
-  'Character-sprite-on-green-backgr-1d7e0039.jpg': './assets/SPRITES/Character_sprite_on_green_backgr…_1d7e0039.jpg',
-  'Pose-character-like-second-chara-611c7f26.jpg': './assets/SPRITES/Pose_character_like_second_chara…_611c7f26.jpg',
+  'Character-isolated-on-green-back-d0703e23.jpg': './assets/SPRITES/NightRazor/Character_isolated_on_green_back…_d0703e23.jpg',
+  'Posing-character-like-second-cha-536fc7d5.jpg': './assets/SPRITES/NightRazor/Posing_character_like_second_cha…_536fc7d5.jpg',
+  'Clean-sprite-sheet-character-iso-51da999a.jpg': './assets/SPRITES/NightRazor/Clean_sprite_sheet_character_iso…_51da999a.jpg',
+  'Character-isolated-on-green-back-cd98e2bf.jpg': './assets/SPRITES/BoneHead/Character_isolated_on_green_back…_cd98e2bf.jpg',
+  'Character-sprite-on-green-backgr-c58ba2d1.jpg': './assets/SPRITES/Enemy3/Character_sprite_on_green_backgr…_c58ba2d1.jpg',
+  'Character-sprite-on-green-backgr-1d7e0039.jpg': './assets/SPRITES/Victor/Character_sprite_on_green_backgr…_1d7e0039.jpg',
 };
-export interface IntermissionCutsceneState {
-  active: boolean;
-  slideIndex: number;
-  currentSet: 'stage2' | 'stage4' | 'stage6';
-  targetStage: number;
-  mapText: string;
-}
+  const SUBFOLDER_MAP: Record<string, string> = {
+  // Enemy2
+  'Clean_sprite_on_green_background_63e91cc1.jpg': 'Enemy2', 'Sprite_isolated_on_green_background_c22e9344.jpg': 'Enemy2',
+  'Sprite_on_green_background_10e418bb.jpg': 'Enemy2', 'Clean_sprite_on_green_background_68e82b91.jpg': 'Enemy2',
+  'Clean_sprite_on_green_background_171ffd5a.jpg': 'Enemy2', 'Sprite_isolated_on_green_background_a3e73a99.jpg': 'Enemy2',
+  'Clean_sprite_on_green_background_26078ad5.jpg': 'Enemy2', 'Sprite_isolated_on_green_background_42471e8d.jpg': 'Enemy2',
+  // Enemy3
+  'Clean_sprite_on_green_background_766634b5.jpg': 'Enemy3', 'Sprite_isolated_on_green_background_bf2241d6.jpg': 'Enemy3',
+  'Sprite_isolated_on_green_background_5dd9e813.jpg': 'Enemy3', 'Sprite_isolated_on_green_background_a1763897.jpg': 'Enemy3',
+  'Clean_sprite_on_green_background_680f9f37.jpg': 'Enemy3', 'Character_on_green_background_c34b6e8e.jpg': 'Enemy3',
+  'Character_on_green_background_9e4e26bd.jpg': 'Enemy3', 'Sprite_on_green_background_816aae06.jpg': 'Enemy3',
+  // Leon
+  'Pose_character_in_walk_position_93f373f5.jpg': 'Leon', 'Modify_idle_pose_variation_4bc4f118.jpg': 'Leon',
+  'Pose_first_character_like_second_d84e1d8f.jpg': 'Leon', 'Create_character_in_art_style_fe36df12.jpg': 'Leon',
+  'Pose_first_character_like_second_ebc458dc.jpg': 'Leon', 'Pose_character_in_straight_leg_a184e734.jpg': 'Leon',
+  'Pose_first_character_like_second_a96dd3e0.jpg': 'Leon', 'Pose_character_like_character_two_beb09d56.jpg': 'Leon',
+  'Pose_character_in_walk_position_79997a61.jpg': 'Leon',
+  // HellKage
+  'Sprite_on_green_background_a9eb2bd5.jpg': 'HellKage', 'Modify_idle_pose_variation_11b2f711.jpg': 'HellKage',
+  'Center_my_character_81fd139b.jpg': 'HellKage', 'Character_on_green_background_f6e6a8ce.jpg': 'HellKage',
+  'Center_my_character_28150019.jpg': 'HellKage', 'Center_my_character_f97a9c90.jpg': 'HellKage',
+  'Sprite_on_green_background_64c3477d.jpg': 'HellKage', 'Sprite_on_green_background_a45a050b.jpg': 'HellKage',
+  'Modify_idle_pose_variation_c42db279.jpg': 'HellKage', 'Sprite_on_green_background_6408b256.jpg': 'HellKage',
+  'Sprite_isolated_on_green_background_f15c4732.jpg': 'HellKage',
+  // BoneHead
+  'IMG_7036.jpeg_2439db95.jpg': 'BoneHead', 'Sprite_isolated_on_green_background_ac35246e.jpg': 'BoneHead',
+  'IMG_7035.jpeg_dad94256.jpg': 'BoneHead', 'Sprite_isolated_on_green_background_02a68f56.jpg': 'BoneHead',
+  'Sprite_on_green_background_428c5a20.jpg': 'BoneHead', 'IMG_7033.jpeg_19bf83cf.jpg': 'BoneHead',
+  'IMG_7032.jpeg_cdbdfb0a.jpg': 'BoneHead', 'IMG_7034.jpeg_adeee187.jpg': 'BoneHead',
+  'Clean_sprite_on_green_background_012a84e9.jpg': 'BoneHead', 'Adjusting_idle_pose_variation_d57ad18e.jpg': 'BoneHead',
+  'Character_on_green_background_85ed9460.jpg': 'BoneHead',
+  // Victor
+  'Clean_sprite_on_green_background_b8aff8c3.jpg': 'Victor', 'IMG_7042.jpeg_4f173f25.jpg': 'Victor',
+  'Clean_sprite_on_green_background_84e99382.jpg': 'Victor', 'IMG_7040.jpeg_4d3a7930.jpg': 'Victor',
+  'Character_on_green_background_2bbbfa2b.jpg': 'Victor', 'IMG_7038.jpeg_66c7af57.jpg': 'Victor',
+  'IMG_7037.jpeg_d067130d.jpg': 'Victor', 'Clean_sprite_on_green_background_6b8a6c5a.jpg': 'Victor',
+  'IMG_7043.jpeg_d410474c.jpg': 'Victor', 'Modify_idle_pose_variation_8942ce81.jpg': 'Victor',
+  'Clean_sprite_on_green_background_bf996538.jpg': 'Victor', 'IMG_7039.jpeg_b750a4e6.jpg': 'Victor',
+  'IMG_7041.jpeg_23c2cbac.jpg': 'Victor', 'Varying_idle_pose_c9f35a67.jpg': 'Victor',
+  'IMG_7044.jpeg_fc058555.jpg': 'Victor', 'Varying_idle_pose_aa6cb499.jpg': 'Victor',
+};
 export function resolveDirectImageUrl(url: string): string {
+  if (!url) return url;
+  if (url.startsWith('./assets/') && !url.startsWith('http')) return url;
+
+  const trimmed = url.trim();
+  const mappedUrl = POSTIMAGE_PAGE_MAP[trimmed] || trimmed;
+  const rawFilename = decodeURIComponent(mappedUrl.split('/').pop() || '').trim();
+
+  if (EXACT_LOCAL_PATHS[rawFilename]) return EXACT_LOCAL_PATHS[rawFilename];
+
+  const underscoreName = rawFilename.replace(/-/g, '_');
+  if (SUBFOLDER_MAP[underscoreName]) {
+    return `./assets/SPRITES/${SUBFOLDER_MAP[underscoreName]}/${underscoreName}`;
+  }
+
+  const lower = underscoreName.toLowerCase();
+  if (lower.includes('crate') || lower.includes('trash') || lower.includes('bin') || lower.includes('barrel') || lower.includes('vending') || lower.includes('hydrant') || lower.includes('stool') || lower.includes('speaker') || lower.includes('table') || lower.includes('tire') || lower.includes('drum') || lower.includes('stanchion') || lower.includes('cooler') || lower.includes('chair') || lower.includes('sculpture') || lower.includes('potted') || lower.includes('helicopter') || lower.includes('puddle')) {
+    return `./assets/Breakables/${underscoreName}`;
+  }
+  if (lower.includes('sky') || lower.includes('building') || lower.includes('street') || lower.includes('light_pole') || lower.includes('chain_link') || lower.includes('bystanders') || lower.includes('dumpster') || lower.includes('nightclub') || lower.includes('guardrails') || lower.includes('truss') || lower.includes('brick') || lower.includes('vip') || lower.includes('parking') || lower.includes('pillar') || lower.includes('foreground') || lower.includes('casino') || lower.includes('floor') || lower.includes('slot') || lower.includes('police') || lower.includes('wall') || lower.includes('armory') || lower.includes('detective') || lower.includes('penthouse') || lower.includes('palm') || lower.includes('ribbon') || lower.includes('4_3_aspect') || lower.includes('rooftop') || lower.includes('render_photo') || lower.includes('styling_photo') || lower.includes('turning_') || lower.includes('turn_person') || lower.includes('spectators') || lower.includes('couple_watching') || lower.includes('crouching_man') || lower.includes('velvet_rope')) {
+    return `./assets/Stages/${underscoreName}`;
+  }
+
+  return `./assets/SPRITES/NightRazor/${underscoreName}`;
+}
+  export function resolveDirectImageUrl(url: string): string {
   if (!url) return url;
   if (url.startsWith('./assets/') && !url.startsWith('http')) return url;
 
