@@ -620,30 +620,7 @@ export function resolveDirectImageUrl(url: string): string {
 
   return `./assets/SPRITES/NightRazor/${underscoreName}`;
 }
-  export function resolveDirectImageUrl(url: string): string {
-  if (!url) return url;
-  if (url.startsWith('./assets/') && !url.startsWith('http')) return url;
-
-  const trimmed = url.trim();
-  const mappedUrl = POSTIMAGE_PAGE_MAP[trimmed] || trimmed;
-  const rawFilename = decodeURIComponent(mappedUrl.split('/').pop() || '').trim();
-
-  if (EXACT_LOCAL_PATHS[rawFilename]) {
-    return EXACT_LOCAL_PATHS[rawFilename];
-  }
-
-  const underscoreName = rawFilename.replace(/-/g, '_');
-  const lower = underscoreName.toLowerCase();
-
-  if (lower.includes('crate') || lower.includes('trash') || lower.includes('bin') || lower.includes('barrel') || lower.includes('vending') || lower.includes('hydrant') || lower.includes('stool') || lower.includes('speaker') || lower.includes('table') || lower.includes('tire') || lower.includes('drum') || lower.includes('stanchion') || lower.includes('cooler') || lower.includes('chair') || lower.includes('sculpture') || lower.includes('potted') || lower.includes('helicopter') || lower.includes('puddle')) {
-    return `./assets/Breakables/${underscoreName}`;
-  }
-  if (lower.includes('sky') || lower.includes('building') || lower.includes('street') || lower.includes('light_pole') || lower.includes('chain_link') || lower.includes('bystanders') || lower.includes('dumpster') || lower.includes('nightclub') || lower.includes('guardrails') || lower.includes('truss') || lower.includes('brick') || lower.includes('vip') || lower.includes('parking') || lower.includes('pillar') || lower.includes('foreground') || lower.includes('casino') || lower.includes('floor') || lower.includes('slot') || lower.includes('police') || lower.includes('wall') || lower.includes('armory') || lower.includes('detective') || lower.includes('penthouse') || lower.includes('palm') || lower.includes('ribbon') || lower.includes('4_3_aspect') || lower.includes('rooftop') || lower.includes('render_photo') || lower.includes('styling_photo') || lower.includes('turning_') || lower.includes('turn_person') || lower.includes('spectators') || lower.includes('couple_watching') || lower.includes('crouching_man') || lower.includes('velvet_rope')) {
-    return `./assets/Stages/${underscoreName}`;
-  }
-
-  return `./assets/SPRITES/${underscoreName}`;
-}
+  
 // On-demand image cache for mid-game intermission cutscenes (zero extra RAM at boot)
 export const intermissionImageCache: Record<string, HTMLImageElement | HTMLCanvasElement> = {};
 
