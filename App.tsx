@@ -444,148 +444,107 @@ export const POSTIMAGE_PAGE_MAP: Record<string, string> = {
 /**
  * Resolves any Postimages URL (direct or page) to the direct raw image URL.
  */
-export function resolveDirectImageUrl(url: string): string {
-  if (!url) return url;
-  if (url.startsWith('./assets/') && !url.startsWith('http')) return url;
-
-  const trimmed = url.trim();
-  const mappedUrl = POSTIMAGE_PAGE_MAP[trimmed] || trimmed;
-  const rawFilename = decodeURIComponent(mappedUrl.split('/').pop() || '').trim();
-  const lower = rawFilename.toLowerCase();
-
-  // 1. COVER ART
-  if (lower.includes('removing-text-and-logos') || lower.includes('cover') || lower.includes('title')) {
-    return `./assets/COVER ART/${rawFilename}`;
-  }
-
-  // 2. OVERLAYS (Game Over screen, Ride Out banner, Mobile Controls)
-  if (
-    lower.includes('replace-kneeling-character') ||
-    lower.includes('game_over') ||
-    lower.includes('gameover') ||
-    lower.includes('edit-button-letters') ||
-    lower === 'image0.jpg' ||
-    lower.includes('ride_out') ||
-    lower.includes('hud') ||
-    lower.includes('joystick') ||
-    lower.includes('button')
-  ) {
-    return `./assets/Overlays/${rawFilename}`;
-  }
-
-  // 3. CUTSCENES (Intro, Outro, Mid-Game Boss Story & Pearl City Map)
-  if (
-    lower.includes('syndicate-takes-over') ||
-    lower.includes('add-story-text') ||
-    lower.includes('change-words-on-box') ||
-    lower.includes('change-text-on-box') ||
-    lower.includes('adding-copyright') ||
-    lower.includes('img-7604') ||
-    lower.includes('img-7605') ||
-    lower.includes('img-7606') ||
-    lower.includes('img-7607') ||
-    lower.includes('intro') ||
-    lower.includes('ending') ||
-    lower.includes('story') ||
-    lower.includes('map')
-  ) {
-    return `./assets/cutscenes/${rawFilename}`;
-  }
-
-  // 4. BREAKABLES (Checked before Stages so Club Table/Stool/Speaker go to Breakables)
-  if (
-    lower.includes('crate') ||
-    lower.includes('trash') ||
-    lower.includes('bin') ||
-    lower.includes('barrel') ||
-    lower.includes('vending') ||
-    lower.includes('hydrant') ||
-    lower.includes('img-7257') ||
-    lower.includes('img-7343') ||
-    lower.includes('img-7345') ||
-    lower.includes('stool') ||
-    lower.includes('speaker') ||
-    lower.includes('table') ||
-    lower.includes('tire') ||
-    lower.includes('drum') ||
-    lower.includes('stanchion') ||
-    lower.includes('cooler') ||
-    lower.includes('chair') ||
-    lower.includes('sculpture') ||
-    lower.includes('potted')
-  ) {
-    return `./assets/Breakables/${rawFilename}`;
-  }
-
-  // 5. STAGES (Backgrounds, Floors & Foreground Stage Props)
-  if (
-    lower.includes('sky') ||
-    lower.includes('building') ||
-    lower.includes('street') ||
-    lower.includes('image0-(3)') ||
-    lower.includes('light-pole') ||
-    lower.includes('chain-link') ||
-    lower.includes('bystanders') ||
-    lower.includes('dumpster') ||
-    lower.includes('img-7249') ||
-    lower.includes('img-7250') ||
-    lower.includes('img-7251') ||
-    lower.includes('img-7252') ||
-    lower.includes('img-7253') ||
-    lower.includes('img-7254') ||
-    lower.includes('nightclub') ||
-    lower.includes('continuing-club') ||
-    lower.includes('adjusting-light') ||
-    lower.includes('guardrails') ||
-    lower.includes('truss-beam') ||
-    lower.includes('brick-column') ||
-    lower.includes('vip-couple') ||
-    lower.includes('parking-garage') ||
-    lower.includes('pillar') ||
-    lower.includes('puddle') ||
-    lower.includes('foreground') ||
-    lower.includes('isolate-distant') ||
-    lower.includes('adjust-building') ||
-    lower.includes('remove-neon') ||
-    lower.includes('remove-the-red') ||
-    lower.includes('turning-subject') ||
-    lower.includes('turn-person') ||
-    lower.includes('turning-character') ||
-    lower.includes('casino') ||
-    lower.includes('floor-structure') ||
-    lower.includes('change-background-to-neon') ||
-    lower.includes('slot-machine') ||
-    lower.includes('city-street-scene') ||
-    lower.includes('police') ||
-    lower.includes('dividing-wall') ||
-    lower.includes('armory-doorway') ||
-    lower.includes('detective-seated') ||
-    lower.includes('penthouse') ||
-    lower.includes('palm-plant') ||
-    lower.includes('ribbon') ||
-    lower.includes('4-3-aspect') ||
-    lower.includes('img-7342') ||
-    lower.includes('stage')
-  ) {
-    return `./assets/Stages/${rawFilename}`;
-  }
-
-  // 6. PICKUPS
-  if (
-    lower.includes('combat_hud_badge') ||
-    lower.includes('wooden_crate') ||
-    lower.includes('energy_snack') ||
-    lower.includes('iron_pipe') ||
-    lower.includes('pickup')
-  ) {
-    return `./assets/Pickups/${rawFilename}`;
-  }
-
-  // 7. SPRITES (Night Razor, Enemies, Bosses, Portrait, Gun Poses, Bullets)
-  return `./assets/SPRITES/${rawFilename}`;
-}
-
-
+const EXACT_LOCAL_PATHS: Record<string, string> = {
+  'Removing-text-and-logos-d8eb9d68.jpg': './assets/COVER ART/Removing_text_and_logos_d8eb9d68.jpg',
+  'Removing-text-and-logos-7f7a402a.jpg': './assets/COVER ART/Removing_text_and_logos_7f7a402a.jpg',
+  'Create-cartoon-hero-portrait-5e59aeb9.jpg': './assets/Overlays/Create_cartoon_hero_portrait_5e59aeb9.jpg',
+  'Replace-kneeling-character-with-182f4b15.jpg': './assets/cutscenes/Replace_kneeling_character_with_…_182f4b15.jpg',
+  'Edit-button-letters-and-backgrounds-7fb7a3ca.jpg': './assets/Breakables/Edit_button_letters_and_backgrounds_7fb7a3ca.jpg',
+  'image0.jpg': './assets/Overlays/image0.jpeg',
+  'image0-(1).jpg': './assets/Overlays/image0 (1).jpeg',
+  'Syndicate-takes-over-Pearl-City-2b59f0d7.jpg': './assets/cutscenes/Syndicate_takes_over_Pearl_City_2b59f0d7.jpg',
+  'Add-story-text-to-box-ca1c0f5b.jpg': './assets/cutscenes/Add_story_text_to_box_ca1c0f5b.jpg',
+  'Change-words-on-box-34545edb.jpg': './assets/cutscenes/Change_words_on_box_34545edb.jpg',
+  'Change-words-on-box-f8275ce0.jpg': './assets/cutscenes/Change_words_on_box_f8275ce0.jpg',
+  'Change-text-on-box-8e3fbfe9.jpg': './assets/cutscenes/Change_text_on_box_8e3fbfe9.jpg',
+  'Adding-copyright-and-text-details-666d04ea.jpg': './assets/cutscenes/Adding_copyright_and_text_details_666d04ea.jpg',
+  'IMG-7604.jpg': './assets/cutscenes/IMG_7604.JPG',
+  'IMG-7605.jpg': './assets/cutscenes/IMG_7605.JPG',
+  'IMG-7606.jpg': './assets/cutscenes/IMG_7606.JPG',
+  'IMG-7607.jpg': './assets/cutscenes/IMG_7607.JPG',
+  'sky.jpg': './assets/Stages/Isolate_distant_night_sky_skyscr…_63246386.jpg',
+  'buildings.jpg': './assets/Stages/Adjust_building_designs_and_back…_486b9c99.jpg',
+  'image0-(3).jpg': './assets/Stages/image0 (3).jpeg',
+  'Arcade-game-asphalt-street-asset-a922a66e.jpg': './assets/Stages/Arcade_game_asphalt_street_asset_a922a66e.jpg',
+  'IMG-7249.jpg': './assets/Stages/IMG_7249.JPG',
+  'IMG-7250.jpg': './assets/Stages/IMG_7250.JPG',
+  'IMG-7342.jpg': './assets/Stages/IMG_7342.JPG',
+  'IMG-7251.jpg': './assets/Breakables/IMG_7251.JPG',
+  'IMG-7252.jpg': './assets/Breakables/IMG_7252.JPG',
+  'IMG-7253.jpg': './assets/Breakables/IMG_7253.JPG',
+  'IMG-7254.jpg': './assets/Breakables/IMG_7254.JPG',
+  'IMG-7257.jpg': './assets/Breakables/IMG_7257.JPG',
+  'IMG-7343.jpg': './assets/Breakables/IMG_7343.JPG',
+  'IMG-7345.jpg': './assets/Breakables/IMG_7345.JPG',
+  'hero-idle.jpg': './assets/SPRITES/Create_character_in_art_style_fe36df12.jpg',
+  'hero-idle2.jpg': './assets/SPRITES/Pose_first_character_like_second_a96dd3e0.jpg',
+  'hero-walk1.jpg': './assets/SPRITES/Pose_character_in_walk_position_79997a61.jpg',
+  'hero-walk3.jpg': './assets/SPRITES/Pose_character_in_walk_position_93f373f5.jpg',
+  'hero-walk4.jpg': './assets/SPRITES/Pose_character_in_walk_position_79997a61.jpg',
+  'hero-punch1.jpg': './assets/SPRITES/Pose_character_punching_db19dd64.jpg',
+  'hero-punch2.jpg': './assets/SPRITES/Pose_first_character_like_second_c4e7a6cb.jpg',
+  'hero-kick.jpg': './assets/SPRITES/hero_kick1.jpg',
+  'hero-kick2.jpg': './assets/SPRITES/Pose_character_in_straight_leg_a184e734.jpg',
+  'hero-damage.jpg': './assets/SPRITES/Pose_first_character_like_second_d84e1d8f.jpg',
+  'hero-damage-midfall.jpg': './assets/SPRITES/Pose_first_character_like_second_ebc458dc.jpg',
+  'hero-lose.jpg': './assets/SPRITES/Sprite_on_green_background_6408b256.jpg',
+  'hero-jump.jpg': './assets/SPRITES/Pose_character_in_position_6ea45bea.jpg',
+  'hero-jumppunch.jpg': './assets/SPRITES/Pose_character_in_punch_position_9d8d7ac7.jpg',
+  'hero-jumpkick.jpg': './assets/SPRITES/Pose_character_in_straight_leg_a184e734.jpg',
+  'hero-grab.jpg': './assets/SPRITES/Pose_character_like_character_two_beb09d56.jpg',
+  'hero-knee.jpg': './assets/SPRITES/Pose_first_character_kneeling_8fab3512.jpg',
+  'hero-throw.jpg': './assets/SPRITES/Posing_character_like_second_cha…_536fc7d5.jpg',
+  'hero-pickup.jpg': './assets/SPRITES/hero_pickup.jpg',
+  'enemy-idle.jpg': './assets/SPRITES/Clean_sprite_on_green_background_bf996538.jpg',
+  'enemy-walk1.jpg': './assets/SPRITES/Sprite_isolated_on_green_background_02a68f56.jpg',
+  'enemy-walk2.jpg': './assets/SPRITES/Character_sprite_on_green_backgr…_c58ba2d1.jpg',
+  'enemy-walk3.jpg': './assets/SPRITES/Character_on_green_background_f6e6a8ce.jpg',
+  'enemy-walk4.jpg': './assets/SPRITES/Sprite_isolated_on_green_background_ac35246e.jpg',
+  'enemy-punch.jpg': './assets/SPRITES/Character_on_green_background_d3f04d5a.jpg',
+  'enemy-damage.jpg': './assets/SPRITES/Character_on_green_background_9e4e26bd.jpg',
+  'enemy-lose.jpg': './assets/SPRITES/Clean_sprite_on_green_background_9f859057.jpg',
+  'Drawing-polished-brass-stanchion-2efbce41.jpg': './assets/Breakables/Drawing_polished_brass_stanchion…_2efbce41.jpg',
+  'Galvanized-steel-trash-can-overf-856d183c.jpg': './assets/Breakables/Galvanized_steel_trash_can_overf…_856d183c.jpg',
+  'Orange-construction-barrel-game-2ba1bb67.jpg': './assets/Breakables/Orange_construction_barrel_game_…_2ba1bb67.jpg',
+  'Overflowing-office-trash-can-dra-a0e33123.jpg': './assets/Breakables/Overflowing_office_trash_can_dra…_a0e33123.jpg',
+  'Isolated-subject-on-green-backgr-84024fc7.jpg': './assets/Breakables/Isolated_subject_on_green_backgr…_84024fc7.jpg',
+  'Draw-abstract-twisted-ribbon-scu-f502d7db.jpg': './assets/Breakables/Draw_abstract_twisted_ribbon_scu…_f502d7db.jpg',
+  'Generate-connecting-rooftop-sect-060ba11a.jpg': './assets/Stages/Generate_connecting_rooftop_sect…_060ba11a.jpg',
+  'Isolate-street-elements-and-gree-33e0980c.jpg': './assets/Stages/Isolate_street_elements_and_gree…_33e0980c.jpg',
+  'Isolate-vertical-dividing-wall-s-b22b746b.jpg': './assets/Stages/Isolate_vertical_dividing_wall_s…_b22b746b.jpg',
+  'Isolate-distant-night-sky-skyscr-63246386.jpg': './assets/Stages/Isolate_distant_night_sky_skyscr…_63246386.jpg',
+  'Dumpster-overflowing-with-trash-0e99e532.jpg': './assets/Stages/Dumpster_overflowing_with_trash_…_0e99e532.jpg',
+  'Generating-casino-background-art-096bd1d8.jpg': './assets/Stages/Generating_casino_background_art…_096bd1d8.jpg',
+  'Adjust-building-designs-and-back-486b9c99.jpg': './assets/Stages/Adjust_building_designs_and_back…_486b9c99.jpg',
+  'Isolate-purple-twilight-city-sky-dec786ab.jpg': './assets/Stages/Isolate_purple_twilight_city_sky…_dec786ab.jpg',
+  'Slice-layered-parallax-backgroun-9d4f7831.jpg': './assets/Stages/Slice_layered_parallax_backgroun…_9d4f7831.jpg',
+  'Editing-parking-garage-game-back-22e4859a.jpg': './assets/Stages/Editing_parking_garage_game_back…_22e4859a.jpg',
+  'Couple-watching-street-fight-ove-deca456a.jpg': './assets/Stages/Couple_watching_street_fight_ove…_deca456a.jpg',
+  'Isolate-image-elements-and-green-eee6bf61.jpg': './assets/Stages/Isolate_image_elements_and_green…_eee6bf61.jpg',
+  'Casino-video-game-background-env-0c50f45f.jpg': './assets/Stages/Casino_video_game_background_env…_0c50f45f.jpg',
+  'Creating-green-background-for-st-2ee1164f.jpg': './assets/Stages/Creating_green_background_for_st…_2ee1164f.jpg',
+  'Corporate-office-interior-video-673561f1.jpg': './assets/Stages/Corporate_office_interior_video_…_673561f1.jpg',
+  'Isolating-casino-background-art-fa624ecb.jpg': './assets/Stages/Isolating_casino_background_art_…_fa624ecb.jpg',
+  'Concrete-pillar-with-security-ca-e9c7f336.jpg': './assets/Stages/Concrete_pillar_with_security_ca…_e9c7f336.jpg',
+  'Editing-dancefloor-image-with-gr-5d632021.jpg': './assets/Stages/Editing_dancefloor_image_with_gr…_5d632021.jpg',
+  'Isolate-vertical-dividing-wall-s-c46f24f9.jpg': './assets/Stages/Isolate_vertical_dividing_wall_s…_c46f24f9.jpg',
+  'Isolate-vertical-dividing-wall-s-3852295f.jpg': './assets/Stages/Isolate_vertical_dividing_wall_s…_3852295f.jpg',
+  'Nightclub-exterior-video-game-ba-b0db260c.jpg': './assets/Stages/Nightclub_exterior_video_game_ba…_b0db260c.jpg',
+  'Isolating-rooftop-elements-and-g-036ce8f7.jpg': './assets/Stages/Isolating_rooftop_elements_and_g…_036ce8f7.jpg',
+  'Continuing-club-scene-platform-d-691f951b.jpg': './assets/Stages/Continuing_club_scene_platform_d…_691f951b.jpg',
+  'Generate-casino-floor-section-de-8adf76a3.jpg': './assets/Stages/Generate_casino_floor_section_de…_8adf76a3.jpg',
+  'Utility-light-pole-foreground-ov-20c5d46a.jpg': './assets/Stages/Utility_light_pole_foreground_ov…_20c5d46a.jpg',
+  'Dumpster-overflowing-with-trash-421d310b.jpg': './assets/Stages/Dumpster_overflowing_with_trash_…_421d310b.jpg',
+  'Nightclub-video-game-background-c8c4a540.jpg': './assets/Stages/Nightclub_video_game_background_…_c8c4a540.jpg',
+  'Isolate-interior-penthouse-room-e1965f94.jpg': './assets/Stages/Isolate_interior_penthouse_room_…_e1965f94.jpg',
+  'Character-isolated-on-green-back-d0703e23.jpg': './assets/SPRITES/Character_isolated_on_green_back…_d0703e23.jpg',
+  'Character-isolated-on-green-back-cd98e2bf.jpg': './assets/SPRITES/Character_isolated_on_green_back…_cd98e2bf.jpg',
+  'Posing-character-like-second-cha-536fc7d5.jpg': './assets/SPRITES/Posing_character_like_second_cha…_536fc7d5.jpg',
+  'Character-sprite-on-green-backgr-c58ba2d1.jpg': './assets/SPRITES/Character_sprite_on_green_backgr…_c58ba2d1.jpg',
+  'Clean-sprite-sheet-character-iso-51da999a.jpg': './assets/SPRITES/Clean_sprite_sheet_character_iso…_51da999a.jpg',
+  'Character-sprite-on-green-backgr-1d7e0039.jpg': './assets/SPRITES/Character_sprite_on_green_backgr…_1d7e0039.jpg',
+  'Pose-character-like-second-chara-611c7f26.jpg': './assets/SPRITES/Pose_character_like_second_chara…_611c7f26.jpg',
+};
 export interface IntermissionCutsceneState {
   active: boolean;
   slideIndex: number;
@@ -593,7 +552,30 @@ export interface IntermissionCutsceneState {
   targetStage: number;
   mapText: string;
 }
+export function resolveDirectImageUrl(url: string): string {
+  if (!url) return url;
+  if (url.startsWith('./assets/') && !url.startsWith('http')) return url;
 
+  const trimmed = url.trim();
+  const mappedUrl = POSTIMAGE_PAGE_MAP[trimmed] || trimmed;
+  const rawFilename = decodeURIComponent(mappedUrl.split('/').pop() || '').trim();
+
+  if (EXACT_LOCAL_PATHS[rawFilename]) {
+    return EXACT_LOCAL_PATHS[rawFilename];
+  }
+
+  const underscoreName = rawFilename.replace(/-/g, '_');
+  const lower = underscoreName.toLowerCase();
+
+  if (lower.includes('crate') || lower.includes('trash') || lower.includes('bin') || lower.includes('barrel') || lower.includes('vending') || lower.includes('hydrant') || lower.includes('stool') || lower.includes('speaker') || lower.includes('table') || lower.includes('tire') || lower.includes('drum') || lower.includes('stanchion') || lower.includes('cooler') || lower.includes('chair') || lower.includes('sculpture') || lower.includes('potted') || lower.includes('helicopter') || lower.includes('puddle')) {
+    return `./assets/Breakables/${underscoreName}`;
+  }
+  if (lower.includes('sky') || lower.includes('building') || lower.includes('street') || lower.includes('light_pole') || lower.includes('chain_link') || lower.includes('bystanders') || lower.includes('dumpster') || lower.includes('nightclub') || lower.includes('guardrails') || lower.includes('truss') || lower.includes('brick') || lower.includes('vip') || lower.includes('parking') || lower.includes('pillar') || lower.includes('foreground') || lower.includes('casino') || lower.includes('floor') || lower.includes('slot') || lower.includes('police') || lower.includes('wall') || lower.includes('armory') || lower.includes('detective') || lower.includes('penthouse') || lower.includes('palm') || lower.includes('ribbon') || lower.includes('4_3_aspect') || lower.includes('rooftop') || lower.includes('render_photo') || lower.includes('styling_photo') || lower.includes('turning_') || lower.includes('turn_person') || lower.includes('spectators') || lower.includes('couple_watching') || lower.includes('crouching_man') || lower.includes('velvet_rope')) {
+    return `./assets/Stages/${underscoreName}`;
+  }
+
+  return `./assets/SPRITES/${underscoreName}`;
+}
 // On-demand image cache for mid-game intermission cutscenes (zero extra RAM at boot)
 export const intermissionImageCache: Record<string, HTMLImageElement | HTMLCanvasElement> = {};
 
