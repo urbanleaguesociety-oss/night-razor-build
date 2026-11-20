@@ -9,9 +9,10 @@ declare global {
   }
 }
 function resolveLocalSound(candidates: string[]): string {
-  const cleanName = decodeURIComponent(candidates[0]);
-  return `./assets/Sounds/${cleanName}`;
+  const first = candidates.at(0) || '';
+  return `./assets/Sounds/${decodeURIComponent(first)}`;
 }
+
 
 
 export const LOCAL_BGM_FALLBACK = resolveLocalSound(['Beat em up game.mp3']);
