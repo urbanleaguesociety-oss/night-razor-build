@@ -602,7 +602,19 @@ export function resolveDirectImageUrl(url: string): string {
   const trimmed = url.trim();
   const mappedUrl = POSTIMAGE_PAGE_MAP[trimmed] || trimmed;
   const rawFilename = decodeURIComponent(mappedUrl.split('/').pop() || '').trim();
-
+  const hashPaths: Record<string, string> = {
+    '182f4b15': './assets/cutscenes/Replace_kneeling_character_with_…_182f4b15.jpg',
+    '536fc7d5': './assets/SPRITES/NightRazor/Posing_character_like_second_cha…_536fc7d5.jpg',
+    '51da999a': './assets/SPRITES/NightRazor/Clean_sprite_sheet_character_iso…_51da999a.jpg',
+    'd0703e23': './assets/SPRITES/NightRazor/Character_isolated_on_green_back…_d0703e23.jpg',
+    'cd98e2bf': './assets/SPRITES/BoneHead/Character_isolated_on_green_back…_cd98e2bf.jpg',
+    'c58ba2d1': './assets/SPRITES/Enemy3/Character_sprite_on_green_backgr…_c58ba2d1.jpg',
+    '1d7e0039': './assets/SPRITES/Victor/Character_sprite_on_green_backgr…_1d7e0039.jpg',
+  };
+  const hexMatch = rawFilename.match(/([a-f0-9]{8})\.(jpg|jpeg|png)$/i);
+  if (hexMatch && hashPaths[hexMatch.at(1)!.toLowerCase()]) {
+    return hashPaths[hexMatch.at(1)!.toLowerCase()];
+  }
   if (EXACT_LOCAL_PATHS[rawFilename]) return EXACT_LOCAL_PATHS[rawFilename];
 
   const underscoreName = rawFilename.replace(/-/g, '_');
@@ -706,10 +718,11 @@ export function preloadIntermissionSet(set: 'stage2' | 'stage4' | 'stage6') {
 
 // Local manifests for props and Bruiser Boss (kept intact)
 const LOCAL_ASSETS_MANIFEST: Record<string, string> = {
-    combat_hud_badge: './assets/Pickups/combat_hud_badge.png',
+  combat_hud_badge: './assets/Pickups/combat_hud_badge.png',
   wooden_crate: './assets/Pickups/wooden_crate.png',
   energy_snack: './assets/Pickups/energy_snack.png',
   iron_pipe: './assets/Pickups/iron_pipe.png',
+
   
   boss_idle: 'assets/images/bruiser_boss_idle.png',
   boss_walk: 'assets/images/bruiser_boss_walk.png',
