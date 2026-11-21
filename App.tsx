@@ -170,8 +170,8 @@ const EXTERNAL_ASSET_DEFS: Record<string, { url: string; chromaKey: boolean }> =
 
   // 1. Stage 1 Background (3-layer parallax)
   stage1_sky: { url: 'https://i.postimg.cc/XYm3079C/sky.jpg', chromaKey: false },
-  stage1_buildings: { url: 'https://i.postimg.cc/Nj5YVr9m/buildings.jpg', chromaKey: true },
-  buildingSection1: { url: 'https://i.postimg.cc/Nj5YVr9m/buildings.jpg', chromaKey: true },
+  stage1_buildings: { url: './assets/Stages/Stage  (1)/building 1.jpg', chromaKey: true },
+  buildingSection1: { url: './assets/Stages/Stage  (1)/building 1.jpg', chromaKey: true },
   buildingSection2: { url: 'https://i.postimg.cc/y6v37dqW/image0-(3).jpg', chromaKey: true },
   stage1_street: { url: 'https://i.postimg.cc/WztMBnMQ/Arcade-game-asphalt-street-asset-a922a66e.jpg', chromaKey: true },
 
@@ -14510,15 +14510,16 @@ export default function App() {
 
       {/* GAME CANVAS WRAPPER */}
       <div className="flex-1 w-full min-h-0 relative flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="relative flex items-center justify-center shadow-2xl overflow-hidden"
-          style={{
-            aspectRatio: `${canvasWidth} / ${canvasHeight}`,
-            width: `min(100%, calc((100vh - 3.5rem) * ${canvasWidth} / ${canvasHeight}))`,
-            height: `min(calc(100vw * ${canvasHeight} / ${canvasWidth}), calc(100vh - 3.5rem))`,
-            maxWidth: '100%',
-            maxHeight: 'calc(100vh - 3.5rem)',
-          }}>
+                  <div
+            className="relative flex items-center justify-center shadow-2xl overflow-hidden max-w-full max-h-full"
+            style={{
+              aspectRatio: `${canvasWidth} / ${canvasHeight}`,
+              width: '100%',
+              height: 'auto',
+              maxHeight: '100%',
+              maxWidth: '100%',
+            }}>
+
           {allAssetsReady && (
             <canvas
               ref={canvasRef}
