@@ -466,7 +466,7 @@ const EXACT_LOCAL_PATHS: Record<string, string> = {
 
   // STAGE 1 & BREAKABLES ALIASES
   'sky.jpg': './assets/Stages/Stage  (4)/Isolate_distant_night_sky_skyscr…_63246386.jpg',
-  'buildings.jpg': './assets/Stages/Stage  (4)/Adjust_building_designs_and_back…_486b9c99.jpg',
+  'buildings.jpg': './assets/Stages/Stage  (1)/building 1.jpg',
   'image0-(3).jpg': './assets/Stages/Stage  (1)/image0 (3).jpeg',
   'Arcade-game-asphalt-street-asset-a922a66e.jpg': './assets/Stages/Stage  (1)/Arcade_game_asphalt_street_asset_a922a66e.jpg',
   'IMG-7249.jpg': './assets/Stages/Stage  (1)/IMG_7249.JPG',
