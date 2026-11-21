@@ -659,32 +659,32 @@ const HASH_PATH_MAP: Record<string, string> = {
 };
 export function resolveDirectImageUrl(url: string): string {
   if (!url) return url;
-  if (url.startsWith('./assets/') && !url.startsWith('http')) return url;
+  if (url.startsWith('./assets/') && !url.startsWith('http')) return encodeURI(url);
 
   const trimmed = url.trim();
   const mappedUrl = POSTIMAGE_PAGE_MAP[trimmed] || trimmed;
   const rawFilename = decodeURIComponent(mappedUrl.split('/').pop() || '').trim();
 
-  if (EXACT_LOCAL_PATHS[rawFilename]) return EXACT_LOCAL_PATHS[rawFilename];
+  if (EXACT_LOCAL_PATHS[rawFilename]) return encodeURI(EXACT_LOCAL_PATHS[rawFilename]);
 
   const hexMatch = rawFilename.match(/([a-f0-9]{8})\.(jpg|jpeg|png)$/i);
   if (hexMatch && HASH_PATH_MAP[hexMatch.at(1)!.toLowerCase()]) {
-    return HASH_PATH_MAP[hexMatch.at(1)!.toLowerCase()];
+    return encodeURI(HASH_PATH_MAP[hexMatch.at(1)!.toLowerCase()]);
   }
 
   const underscoreName = rawFilename.replace(/-/g, '_');
   if (SUBFOLDER_MAP[underscoreName]) {
-    return `./assets/SPRITES/${SUBFOLDER_MAP[underscoreName]}/${underscoreName}`;
+    return encodeURI(`./assets/SPRITES/${SUBFOLDER_MAP[underscoreName]}/${underscoreName}`);
   }
 
   const lower = underscoreName.toLowerCase();
   if (lower.includes('crate') || lower.includes('trash') || lower.includes('bin') || lower.includes('barrel') || lower.includes('vending') || lower.includes('hydrant') || lower.includes('stool') || lower.includes('speaker') || lower.includes('table') || lower.includes('tire') || lower.includes('drum') || lower.includes('stanchion') || lower.includes('cooler') || lower.includes('chair') || lower.includes('sculpture') || lower.includes('potted') || lower.includes('helicopter') || lower.includes('puddle')) {
-    return `./assets/Breakables/${underscoreName}`;
+    return encodeURI(`./assets/Breakables/${underscoreName}`);
   }
 
-  return `./assets/SPRITES/NightRazor/${rawFilename}`;
+  return encodeURI(`./assets/SPRITES/NightRazor/${rawFilename}`);
 }
-;
+
 
 
 // On-demand image cache for mid-game intermission cutscenes (zero extra RAM at boot)
@@ -14510,15 +14510,16 @@ export default function App() {
 
       {/* GAME CANVAS WRAPPER */}
       <div className="flex-1 w-full min-h-0 relative flex items-center justify-center bg-black overflow-hidden">
-                  <div
-            className="relative flex items-center justify-center shadow-2xl overflow-hidden max-w-full max-h-full"
+                            <div
+            className="relative flex items-center justify-center shadow-2xl overflow-hidden"
             style={{
               aspectRatio: `${canvasWidth} / ${canvasHeight}`,
-              width: '100%',
-              height: 'auto',
-              maxHeight: '100%',
+              width: 'min(100vw, calc((100dvh - 3.5rem) * 4 / 3))',
+              height: 'min(calc(100dvh - 3.5rem), calc(100vw * 3 / 4))',
               maxWidth: '100%',
+              maxHeight: '100%',
             }}>
+
 
           {allAssetsReady && (
             <canvas
