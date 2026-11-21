@@ -320,10 +320,11 @@ const EXTERNAL_ASSET_DEFS: Record<string, { url: string; chromaKey: boolean }> =
   garageDrum: { url: STAGE3_URLS.garageDrum, chromaKey: true },
   garageCone: { url: STAGE3_URLS.garageCone, chromaKey: true },
 
-  // 15. Stage 4 (Downtown Street Race) Assets
-  stage4_skyline: { url: STAGE4_URLS.skyline, chromaKey: false },
-  stage4_bldA: { url: STAGE4_URLS.bldA, chromaKey: true },
-  stage4_bldB: { url: STAGE4_URLS.bldB, chromaKey: true },
+   // 15. Stage 4 (Downtown Street Race) Assets
+  stage4_skyline: { url: './assets/Stages/Stage  (4)/stage4_skyline.jpg', chromaKey: false },
+  stage4_bldA: { url: './assets/Stages/Stage  (4)/stage4_bldA.jpg', chromaKey: true },
+  stage4_bldB: { url: './assets/Stages/Stage  (4)/stage4_bldB.jpg', chromaKey: true },
+
   stage4_floor: { url: STAGE4_URLS.floor, chromaKey: true },
   stage4_guy1: { url: STAGE4_URLS.guy1, chromaKey: true },
   stage4_guy2: { url: STAGE4_URLS.guy2, chromaKey: true },
