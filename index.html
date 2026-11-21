@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full w-full overflow-hidden bg-black">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Night Razor: Pearl City Brawlers</title>
+  <script src="https://tailwindcss.com"></script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
     html, body, #root {
       width: 100%;
-      height: 100%;
-      background-color: #000;
+      height: 100dvh;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #000;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
     }
   </style>
 </head>
