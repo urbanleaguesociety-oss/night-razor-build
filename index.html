@@ -6,7 +6,7 @@
   <title>Night Razor: Pearl City Brawlers</title>
   <script src="https://tailwindcss.com"></script>
   <style>
-                      #mobile-touch-controls {
+                          #mobile-touch-controls {
       position: fixed !important;
       inset: 0 !important;
       pointer-events: none !important;
@@ -14,15 +14,13 @@
       display: flex !important;
       justify-content: space-between !important;
       align-items: flex-end !important;
-      padding: 12px 12px 22px 12px !important;
+      padding: 14px 14px 20px 14px !important;
     }
-
-    /* Left 8-Way Arcade Joystick */
     #mobile-touch-controls [aria-label="Arcade 8-Way Joystick"] {
       position: relative !important;
-      width: 132px !important;
-      height: 132px !important;
-      margin-bottom: 12px !important;
+      width: 136px !important;
+      height: 136px !important;
+      margin-bottom: 10px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
@@ -31,33 +29,15 @@
     }
     #mobile-touch-controls [aria-label="Arcade 8-Way Joystick"] > div {
       position: absolute !important;
-      width: 52px !important;
-      height: 52px !important;
+      width: 54px !important;
+      height: 54px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
     }
-
-    /* Right S / J / P / K Tight Diamond Cluster (targets both outer & inner wrappers) */
-    #mobile-touch-controls > div:last-child,
-    #mobile-touch-controls > div:last-child > div {
-      position: relative !important;
-      width: 146px !important;
-      height: 146px !important;
-      min-width: 146px !important;
-      max-width: 146px !important;
-      min-height: 146px !important;
-      max-height: 146px !important;
-      margin-bottom: 6px !important;
-      margin-right: 4px !important;
-      pointer-events: none !important;
-    }
-    #mobile-touch-controls > div:last-child button {
-      position: absolute !important;
+    #mobile-touch-controls button {
       width: 48px !important;
       height: 48px !important;
-      pointer-events: auto !important;
-      touch-action: none !important;
       background: transparent !important;
       border: none !important;
       padding: 0 !important;
@@ -65,22 +45,12 @@
       align-items: center !important;
       justify-content: center !important;
     }
-    /* Explicit pixel diamond coordinates inside 146x146 box */
-        #mobile-touch-controls .top-0 { top: 0 !important; }
-    #mobile-touch-controls .bottom-0 { bottom: 0 !important; }
-    #mobile-touch-controls .left-0 { left: 0 !important; }
-    #mobile-touch-controls .right-0 { right: 0 !important; }
-    #mobile-touch-controls .left-1\/2 { left: 50% !important; margin-left: -24px !important; transform: none !important; }
-    #mobile-touch-controls .top-1\/2 { top: 50% !important; margin-top: -24px !important; transform: none !important; }
-
     #mobile-touch-controls svg,
     #mobile-touch-controls img {
       width: 100% !important;
       height: 100% !important;
       display: block !important;
     }
-
-
 
 
     *, *::before, *::after { box-sizing: border-box; }
