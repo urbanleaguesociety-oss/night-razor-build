@@ -5069,63 +5069,92 @@ export function ArcadeDiamondButtons({
   onUserInteraction,
 }: ArcadeDiamondButtonsProps) {
   return (
-        <div
-      style={{ position: 'relative', width: '148px', height: '148px', marginBottom: '8px', marginRight: '4px' }}
-      className="relative w-40 h-40 sm:w-44 sm:h-44 pointer-events-auto select-none touch-none shrink-0 mr-1 sm:mr-2 mb-1 sm:mb-2">
+    <div
+      style={{
+        position: 'relative',
+        width: '150px',
+        height: '150px',
+        marginBottom: '8px',
+        marginRight: '4px',
+        pointerEvents: 'none',
+        flexShrink: 0,
+      }}
+    >
+      {/* S (Purple Button) - Top */}
+      <div style={{ position: 'absolute', top: '0px', left: '51px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
+        <ArcadeButton
+          label="BURST"
+          keyLetter="S"
+          imgUrl={controls?.btnSUrl}
+          accentColor="#a855f7"
+          positionClass=""
+          onActionStart={() => {
+            touchActionsRef.current.special = true;
+            onUserInteraction();
+          }}
+          onActionEnd={() => {
+            touchActionsRef.current.special = false;
+          }}
+        />
+      </div>
 
-      {/* S (Purple Button) - Top -> SPECIAL / BURST (triggers C) */}
-      <ArcadeButton
-        label="BURST"
-        keyLetter="S"
-        imgUrl={controls?.btnSUrl}
-        accentColor="#a855f7"
-        positionClass="top-0 left-1/2 -translate-x-1/2"
-        onActionStart={() => {
-          touchActionsRef.current.special = true;
-          onUserInteraction();
-        }}
-        onActionEnd={() => {
-          touchActionsRef.current.special = false;
-        }}
-      />
+      {/* J (Red Button) - Left */}
+      <div style={{ position: 'absolute', top: '51px', left: '0px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
+        <ArcadeButton
+          label="JUMP"
+          keyLetter="J"
+          imgUrl={controls?.btnJUrl}
+          accentColor="#ef4444"
+          positionClass=""
+          onActionStart={() => {
+            touchActionsRef.current.jump = true;
+            onUserInteraction();
+          }}
+          onActionEnd={() => {
+            touchActionsRef.current.jump = false;
+          }}
+        />
+      </div>
 
-      {/* J (Red Button) - Left -> JUMP (triggers Space / Jump) */}
-      <ArcadeButton
-        label="JUMP"
-        keyLetter="J"
-        imgUrl={controls?.btnJUrl}
-        accentColor="#ef4444"
-        positionClass="left-0 top-1/2 -translate-y-1/2"
-        onActionStart={() => {
-          touchActionsRef.current.jump = true;
-          onUserInteraction();
-        }}
-        onActionEnd={() => {
-          touchActionsRef.current.jump = false;
-        }}
-      />
+      {/* P (Blue Button) - Right */}
+      <div style={{ position: 'absolute', top: '51px', right: '0px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
+        <ArcadeButton
+          label="PUNCH"
+          keyLetter="P"
+          imgUrl={controls?.btnPUrl}
+          accentColor="#00f0ff"
+          positionClass=""
+          onActionStart={() => {
+            touchActionsRef.current.punch = true;
+            onUserInteraction();
+          }}
+          onActionEnd={() => {
+            touchActionsRef.current.punch = false;
+          }}
+        />
+      </div>
 
-      {/* P (Blue Button) - Right -> PUNCH (triggers Z attack) */}
-      <ArcadeButton
-        label="PUNCH"
-        keyLetter="P"
-        imgUrl={controls?.btnPUrl}
-        accentColor="#00f0ff"
-        positionClass="right-0 top-1/2 -translate-y-1/2"
-        onActionStart={() => {
-          touchActionsRef.current.punch = true;
-          onUserInteraction();
-        }}
-        onActionEnd={() => {
-          touchActionsRef.current.punch = false;
-        }}
-      />
+      {/* K (Yellow Button) - Bottom */}
+      <div style={{ position: 'absolute', bottom: '0px', left: '51px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
+        <ArcadeButton
+          label="KICK"
+          keyLetter="K"
+          imgUrl={controls?.btnKUrl}
+          accentColor="#facc15"
+          positionClass=""
+          onActionStart={() => {
+            touchActionsRef.current.kick = true;
+            onUserInteraction();
+          }}
+          onActionEnd={() => {
+            touchActionsRef.current.kick = false;
+          }}
+        />
+      </div>
+    </div>
+  );
+}
 
-      {/* K (Yellow Button) - Bottom -> KICK (triggers X attack) */}
-      <ArcadeButton
-        label="KICK"
-        keyLetter="K"
-        imgUrl={controls?.btnKUrl}
         accentColor="#facc15"
         positionClass="bottom-0 left-1/2 -translate-x-1/2"
         onActionStart={() => {
