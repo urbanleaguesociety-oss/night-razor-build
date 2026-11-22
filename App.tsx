@@ -5072,8 +5072,8 @@ export function ArcadeDiamondButtons({
     <div
       style={{
         position: 'relative',
-        width: '150px',
-        height: '150px',
+        width: '152px',
+        height: '152px',
         marginBottom: '8px',
         marginRight: '4px',
         pointerEvents: 'none',
@@ -5081,7 +5081,7 @@ export function ArcadeDiamondButtons({
       }}
     >
       {/* S (Purple Button) - Top */}
-      <div style={{ position: 'absolute', top: '0px', left: '51px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
+      <div style={{ position: 'absolute', top: '0px', left: '52px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
         <ArcadeButton
           label="BURST"
           keyLetter="S"
@@ -5099,7 +5099,7 @@ export function ArcadeDiamondButtons({
       </div>
 
       {/* J (Red Button) - Left */}
-      <div style={{ position: 'absolute', top: '51px', left: '0px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
+      <div style={{ position: 'absolute', top: '52px', left: '0px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
         <ArcadeButton
           label="JUMP"
           keyLetter="J"
@@ -5117,7 +5117,7 @@ export function ArcadeDiamondButtons({
       </div>
 
       {/* P (Blue Button) - Right */}
-      <div style={{ position: 'absolute', top: '51px', right: '0px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
+      <div style={{ position: 'absolute', top: '52px', right: '0px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
         <ArcadeButton
           label="PUNCH"
           keyLetter="P"
@@ -5135,7 +5135,7 @@ export function ArcadeDiamondButtons({
       </div>
 
       {/* K (Yellow Button) - Bottom */}
-      <div style={{ position: 'absolute', bottom: '0px', left: '51px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
+      <div style={{ position: 'absolute', bottom: '0px', left: '52px', width: '48px', height: '48px', pointerEvents: 'auto' }}>
         <ArcadeButton
           label="KICK"
           keyLetter="K"
@@ -5152,9 +5152,9 @@ export function ArcadeDiamondButtons({
         />
       </div>
     </div>
-
   );
 }
+
 
 export const BACKGROUND_ASSET_KEYS = new Set<string>([
   'title_cover',
