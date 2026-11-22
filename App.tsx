@@ -5152,20 +5152,7 @@ export function ArcadeDiamondButtons({
         />
       </div>
     </div>
-  );
-}
 
-        accentColor="#facc15"
-        positionClass="bottom-0 left-1/2 -translate-x-1/2"
-        onActionStart={() => {
-          touchActionsRef.current.kick = true;
-          onUserInteraction();
-        }}
-        onActionEnd={() => {
-          touchActionsRef.current.kick = false;
-        }}
-      />
-    </div>
   );
 }
 
