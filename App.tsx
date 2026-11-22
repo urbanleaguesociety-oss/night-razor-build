@@ -14836,8 +14836,10 @@ export default function App() {
         {/* MOBILE CONTROLS OVERLAY - Scaled and anchored strictly inside the visible screen safe area (0 to window.innerWidth) in both portrait and landscape */}
                         {(isMobile || 'ontouchstart' in window || navigator.maxTouchPoints > 0) && gameState.status === 'PLAYING' && !isGameMenuOpen && !showContinueModal && (
 
-          <div
-            className="absolute inset-0 pointer-events-none z-30 flex justify-between items-end p-2 sm:p-4 overflow-hidden"
+                 <div
+         id="mobile-touch-controls"
+         className="absolute inset-0 pointer-events-none z-30 flex justify-between items-end p-2 sm:p-4 overflow-hidden"
+
             style={{
               maxWidth: '100vw',
               paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0.75rem))',
