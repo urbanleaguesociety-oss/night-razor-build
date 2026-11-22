@@ -5069,7 +5069,10 @@ export function ArcadeDiamondButtons({
   onUserInteraction,
 }: ArcadeDiamondButtonsProps) {
   return (
-    <div className="relative w-40 h-40 sm:w-44 sm:h-44 pointer-events-auto select-none touch-none shrink-0 mr-1 sm:mr-2 mb-1 sm:mb-2">
+        <div
+      style={{ position: 'relative', width: '148px', height: '148px', marginBottom: '8px', marginRight: '4px' }}
+      className="relative w-40 h-40 sm:w-44 sm:h-44 pointer-events-auto select-none touch-none shrink-0 mr-1 sm:mr-2 mb-1 sm:mb-2">
+
       {/* S (Purple Button) - Top -> SPECIAL / BURST (triggers C) */}
       <ArcadeButton
         label="BURST"
