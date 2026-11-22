@@ -66,10 +66,12 @@
       justify-content: center !important;
     }
     /* Explicit pixel diamond coordinates inside 146x146 box */
-    #mobile-touch-controls > div:last-child button:nth-of-type(1) { top: 0px !important; left: 49px !important; transform: none !important; }
-    #mobile-touch-controls > div:last-child button:nth-of-type(2) { top: 49px !important; left: 0px !important; transform: none !important; }
-    #mobile-touch-controls > div:last-child button:nth-of-type(3) { top: 49px !important; right: 0px !important; left: auto !important; transform: none !important; }
-    #mobile-touch-controls > div:last-child button:nth-of-type(4) { bottom: 0px !important; top: auto !important; left: 49px !important; transform: none !important; }
+        #mobile-touch-controls .top-0 { top: 0 !important; }
+    #mobile-touch-controls .bottom-0 { bottom: 0 !important; }
+    #mobile-touch-controls .left-0 { left: 0 !important; }
+    #mobile-touch-controls .right-0 { right: 0 !important; }
+    #mobile-touch-controls .left-1\/2 { left: 50% !important; margin-left: -24px !important; transform: none !important; }
+    #mobile-touch-controls .top-1\/2 { top: 50% !important; margin-top: -24px !important; transform: none !important; }
 
     #mobile-touch-controls svg,
     #mobile-touch-controls img {
@@ -77,6 +79,7 @@
       height: 100% !important;
       display: block !important;
     }
+
 
 
 
