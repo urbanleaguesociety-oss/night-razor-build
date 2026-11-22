@@ -6,7 +6,7 @@
   <title>Night Razor: Pearl City Brawlers</title>
   <script src="https://tailwindcss.com"></script>
   <style>
-                          #mobile-touch-controls {
+                              #mobile-touch-controls {
       position: fixed !important;
       inset: 0 !important;
       pointer-events: none !important;
@@ -35,9 +35,14 @@
       align-items: center !important;
       justify-content: center !important;
     }
+    #mobile-touch-controls > div:last-child > div > div {
+      position: relative !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
     #mobile-touch-controls button {
-      width: 48px !important;
-      height: 48px !important;
+      width: 100% !important;
+      height: 100% !important;
       background: transparent !important;
       border: none !important;
       padding: 0 !important;
@@ -51,6 +56,7 @@
       height: 100% !important;
       display: block !important;
     }
+
 
 
     *, *::before, *::after { box-sizing: border-box; }
