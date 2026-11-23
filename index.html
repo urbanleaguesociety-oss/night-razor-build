@@ -58,7 +58,6 @@
     }
 
 
-
     *, *::before, *::after { box-sizing: border-box; }
     html, body, #root {
       width: 100%;
@@ -85,16 +84,17 @@
       overflow: hidden;
       background: #020617;
     }
-       #root header + div {
-      flex: 1 1 auto;
-      width: 100%;
-      min-height: 0;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-      overflow: hidden;
+    #root header + div {
+      flex: 1 1 auto !important;
+      width: 100% !important;
+      height: calc(100% - 52px) !important;
+      min-height: 0 !important;
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #000 !important;
+      overflow: hidden !important;
     }
     #root header + div > div:first-child {
       position: relative !important;
@@ -102,10 +102,11 @@
       align-items: center !important;
       justify-content: center !important;
       overflow: hidden !important;
-      height: calc(100vh - 52px) !important;
-      width: calc((100vh - 52px) * 4 / 3) !important;
-      max-width: 100vw !important;
-      max-height: calc(100vh - 52px) !important;
+      height: 100% !important;
+      width: auto !important;
+      aspect-ratio: 4 / 3 !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
     }
     #root canvas {
       position: absolute !important;
@@ -115,6 +116,7 @@
       object-fit: fill !important;
       display: block !important;
     }
+
     .hidden { display: none !important; }
     .fixed { position: fixed; }
     .absolute { position: absolute; }
