@@ -85,19 +85,7 @@
       overflow: hidden;
       background: #020617;
     }
-    #root header {
-      width: 100%;
-      height: 52px;
-      min-height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 12px;
-      background: rgba(15, 23, 42, 0.95);
-      border-bottom: 1px solid rgba(6, 182, 212, 0.35);
-      z-index: 20;
-    }
-    #root header + div {
+       #root header + div {
       flex: 1 1 auto;
       width: 100%;
       min-height: 0;
@@ -108,11 +96,24 @@
       background: #000;
       overflow: hidden;
     }
+    #root header + div > div:first-child {
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: hidden !important;
+      height: calc(100vh - 52px) !important;
+      width: calc((100vh - 52px) * 4 / 3) !important;
+      max-width: 100vw !important;
+      max-height: calc(100vh - 52px) !important;
+    }
     #root canvas {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: fill !important;
+      display: block !important;
     }
     .hidden { display: none !important; }
     .fixed { position: fixed; }
